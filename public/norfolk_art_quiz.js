@@ -66,7 +66,7 @@ var game = function(art) {
         var points = 20;
         
         // Load image of the piece of art
-        $('#instructions').html('Pick the title!');
+        $('#instructions').html('Pick the title! (' + (this.curTurn + 1) + ' of 5)');
         $('#art-piece').removeClass('corner');
         $('#art-piece').addClass('center');
         $('#art-piece img').bind('load', function() {
@@ -101,7 +101,7 @@ var game = function(art) {
     this.playLocation = function() {
         var curPiece = this.piecesToPlay[this.curTurn];
         
-        $('#instructions').html('Pick the location!');
+        $('#instructions').html('Pick the location! (' + (this.curTurn + 1) + ' of 5)');
         $('#art-piece').removeClass('center');
         $('#art-piece').addClass('corner');
         $('#art-piece').css('margin-left', '0px');
@@ -130,7 +130,7 @@ var game = function(art) {
             var distanceInMeters = distBetween(guessMarker.getPosition(), artMarker.getPosition());
             
             var points = Math.floor(30 - (distanceInMeters/100) - timeInSeconds);
-            $('#instructions').html(distanceInMeters + ' meters away<br/>in ' + timeInSeconds + ' seconds<br/>' + points + ' points');
+            $('#instructions').html(distanceInMeters + ' meters away in ' + timeInSeconds + ' seconds<br/>' + points + ' points');
             
             that.totalPoints += points;
             setTimeout(nextTurn, 5000);
